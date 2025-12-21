@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="game.xsl"?>
+<games>
+   <game>
+      <name>The Last of Us Part II</name>
+      <developer>Naughty Dog</developer>
+   </game>
+   <game>
+      <name>Ghost of Tsushima</name>
+      <developer>Sucker Punch Productions</developer>
+   </game>
+   <game>
+      <name>Death Stranding</name>
+      <developer>Kojima Productions</developer>
+   </game>
+</games>
