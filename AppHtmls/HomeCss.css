@@ -1,0 +1,62 @@
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa; /* Light, clean background */
+        }
+
+        /* App Title */
+        h1 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 350px; /* Prevents it from getting too large on tablets */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        /* 3x3 Grid for Flags */
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 15px; /* Vertical and horizontal spacing */
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Individual Language Button */
+        .language-btn {
+            text-decoration: none;
+            color: #34495e;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+
+        /* Tap effect for mobile */
+        .language-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Flag Images */
+        .language-btn img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%; /* Circular flags look highly polished on mobile */
+            object-fit: cover;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            margin-bottom: 8px;
+            border: 2px solid #ffffff;
+        }
