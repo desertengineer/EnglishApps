@@ -1,12 +1,12 @@
 /**
  * HomeCss.css - English Language Fun
- * Professional Modern Layout with Glassmorphism Effects
+ * Optimized for compact mobile display with Glassmorphism
  */
 
 /* 1. Base Body Setup */
 body {
     margin: 0;
-    padding: 20px;
+    padding: 10px 20px; /* Reduced top padding */
     text-align: center;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     
@@ -16,112 +16,104 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-color: #f0f2f5; /* Fallback */
-    
-    /* Smooth scrolling for mobile */
+    background-color: #f0f2f5; 
     -webkit-overflow-scrolling: touch;
 }
 
-/* 2. Glassmorphism Containers (Title and Trigger) */
-h1#home-title, 
-#lang-trigger {
-    background: rgba(255, 255, 255, 0.75); /* Semi-transparent white */
-    backdrop-filter: blur(10px);           /* Modern blur effect */
+/* 2. Glassmorphism Title - Animated */
+h1#home-title {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    margin: 10px auto 30px auto;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 5px auto 10px auto; /* Very tight margins */
     max-width: 400px;
     width: 90%;
-}
-
-/* Title Styling */
-h1#home-title {
-    font-size: 28px;
+    font-size: 20px; /* Smaller to fit one line */
     color: #1a2a3a;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* 3. Animated Language Trigger */
-#lang-trigger {
-    font-size: 19px;
-    font-weight: 600;
-    min-height: 35px;
-    transition: all 0.6s ease-in-out; /* Smooth transition for color/text changes */
+    min-height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #2c3e50;
+    transition: opacity 0.6s ease-in-out;
 }
 
-/* 4. Header Banner Image */
+/* 3. Header Banner Image */
 .header-image {
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    margin-bottom: 35px;
-    border: 4px solid #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    margin-bottom: 12px; /* Tight gap to trigger */
+    border: 3px solid #ffffff;
+}
+
+/* 4. Language Trigger - Compact & Animated */
+#lang-trigger {
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 22px;
+    padding: 6px 15px; /* Low height padding */
+    transition: all 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    width: fit-content; /* Hugs the text */
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 /* 5. 3x3 Flag Grid */
 .flag-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px 15px;
-    max-width: 400px;
+    gap: 15px 10px; /* Tight grid spacing */
+    max-width: 380px;
     margin: 0 auto;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
 }
 
-/* 6. Individual Language Buttons */
+/* 6. Language Buttons */
 .language-btn {
     text-decoration: none;
-    color: #ffffff; /* Contrast against the dark shadow/text-outline */
-    font-size: 13px;
-    font-weight: 700;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.2s ease;
 }
 
 .language-btn img {
-    width: 75px;
-    height: 75px;
+    width: 65px; /* Slightly smaller for better fit */
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    margin-bottom: 8px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 5px;
     background-color: #fff;
 }
 
-/* Interactive States */
+.language-btn span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.2);
+    padding: 1px 6px;
+    border-radius: 8px;
+}
+
 .language-btn:active {
     transform: scale(0.9);
-}
-
-/* Text label styling (adds a small shadow to ensure readability over the background) */
-.language-btn span {
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-    background: rgba(0,0,0,0.2);
-    padding: 2px 8px;
-    border-radius: 10px;
-}
-
-/* 7. Utility Classes for Javascript Animation */
-.fade-out {
-    opacity: 0;
-    transform: translateY(5px);
-}
-
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
 }
