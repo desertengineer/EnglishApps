@@ -94,10 +94,35 @@ function startTriggerAnimation() {
 
 function renderFlagButton(imgUrl, langCode, container) {
     const anchor = document.createElement("a");
-    anchor.href = `go:Activities`; 
+    // Update 'next_section_url' as needed for your AppCreator24 navigation
+    anchor.href = `next_section_url?lang=${langCode}`; 
     anchor.className = "language-btn";
-    anchor.innerHTML = `<img src="${imgUrl}" alt="${langCode}"><span>${langCode.toUpperCase()}</span>`;
+
+    // Get the native name (e.g., 'Español' instead of 'ES')
+    const nativeName = getNativeName(langCode);
+
+    anchor.innerHTML = `
+        <img src="${imgUrl}" alt="${langCode}">
+        <span>${nativeName}</span>
+    `;
     container.appendChild(anchor);
+}
+/**
+ * Returns the language name in its own native script
+ */
+function getNativeName(code) {
+    const nativeNames = {
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "es": "Español",
+        "fr": "Français",
+        "hi": "हिन्दी",
+        "pt": "Português",
+        "ru": "Русский",
+        "ur": "اردو",
+        "zh": "中文"
+    };
+    return nativeNames[code] || code.toUpperCase();
 }
 
 // Menu Toggle Logic
