@@ -34,8 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function initMenu() {
     const btn = document.getElementById("hamburger-menu");
     const menu = document.getElementById("dropdown-menu");
+    
     document.addEventListener("click", (e) => {
-        if (btn.contains(e.target)) menu.classList.toggle("show");
-        else if (!menu.contains(e.target)) menu.classList.remove("show");
+        if (btn && btn.contains(e.target)) {
+            menu.classList.toggle("show");
+        } else if (menu && !menu.contains(e.target)) {
+            menu.classList.remove("show");
+        }
     });
 }
