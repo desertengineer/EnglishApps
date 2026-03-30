@@ -13,20 +13,64 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
-    padding: 8px 15px;
-    margin-bottom: 25px;
+    padding: 10px 15px;
+    margin: 5px auto 25px auto;
+    width: 90%;
+    max-width: 420px;
+    position: relative; /* CRITICAL: Keeps dropdown attached to bar */
+}
+
+/* Hamburger Icon */
+#hamburger-menu {
+    font-size: 24px;
+    cursor: pointer;
+    color: #1a2a3a;
+    z-index: 3001;
+    flex-shrink: 0; /* Prevents icon from squishing */
 }
 
 #welcome-msg {
     font-size: 18px;
     margin: 0;
     color: #1a2a3a;
-    text-transform: capitalize;
+    font-weight: 800;
+    flex-grow: 1;
+    text-align: center; /* Centers text between menu and empty space */
 }
 
+.dropdown-content {
+    display: none; /* Keep hidden until 'show' class is added */
+    position: absolute;
+    top: 55px; /* Appears below the bar */
+    left: 10px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    min-width: 160px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    z-index: 3000;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: left;
+    flex-direction: column; /* Forces links to stack vertically */
+}
+.dropdown-content a {
+    color: #1a2a3a;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Stack links */
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+/* Only show when the toggle logic runs */
+.show {
+    display: flex !important; 
+}
 /* 2x2 Grid Layout */
 .activity-grid {
     display: grid;
