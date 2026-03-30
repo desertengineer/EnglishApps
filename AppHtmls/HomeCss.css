@@ -1,80 +1,75 @@
 /**
  * HomeCss.css - English Language Fun
- * Optimized for compact mobile display with Glassmorphism
+ * Final Integrated Version: Fixed Menu + Dual Animations + Glassmorphism
  */
 
 /* 1. Base Body Setup */
 body {
     margin: 0;
-    padding: 10px 20px; /* Reduced top padding */
+    padding: 15px 20px; 
     text-align: center;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    
-    /* Background Image Configuration */
     background-image: url('https://desertengineer.github.io/EnglishApps/AppAssets/HomeBackground.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-color: #f0f2f5; 
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
 }
 
-/* 2. Glassmorphism Title - Animated */
-/* Container for the Title + Menu */
-.menu-outer {
-    position: relative;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* Hamburger Icon Positioning */
+/* 2. Fixed Hamburger Menu System */
 #hamburger-menu {
-    position: absolute;
-    left: 25px;
-    top: 22px; /* Centers vertically with the title */
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1001;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 28px;
     color: #1a2a3a;
-}
-
-/* Dropdown Menu Styling (Glassmorphism) */
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 55px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
+    cursor: pointer;
+    z-index: 2000;
+    background: rgba(255, 255, 255, 0.6);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
-    overflow: hidden;
-    text-align: left;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Links inside the dropdown */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    top: 65px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    min-width: 190px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    z-index: 1999;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: left;
+}
+
 .dropdown-content a {
     color: #1a2a3a;
-    padding: 12px 16px;
+    padding: 14px 20px;
     text-decoration: none;
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.dropdown-content a:last-child { border-bottom: none; }
+.dropdown-content a:active { background-color: #f0f2f5; }
 
-.dropdown-content a:active {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Show class for JS toggle */
 .show { display: block !important; }
+
+/* 3. Animated Glass Title */
 h1#home-title {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(10px);
@@ -83,62 +78,61 @@ h1#home-title {
     border-radius: 15px;
     padding: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 5px auto 10px auto; /* Very tight margins */
+    margin: 10px auto 15px auto;
     max-width: 400px;
-    width: 90%;
-    font-size: 20px; /* Smaller to fit one line */
+    width: 85%;
+    font-size: 20px;
     color: #1a2a3a;
     font-weight: 800;
     text-transform: uppercase;
-    min-height: 28px;
+    min-height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.6s ease-in-out;
 }
 
-/* 3. Header Banner Image */
+/* 4. Banner Image */
 .header-image {
     width: 100%;
     max-width: 360px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    margin-bottom: 12px; /* Tight gap to trigger */
+    margin-bottom: 15px;
     border: 3px solid #ffffff;
 }
 
-/* 4. Language Trigger - Compact & Animated */
+/* 5. Animated Trigger Box */
 #lang-trigger {
     font-size: 16px;
     font-weight: 600;
-    min-height: 22px;
-    padding: 6px 15px; /* Low height padding */
+    min-height: 24px;
+    padding: 6px 15px;
     transition: all 0.6s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 20px auto;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 10px;
-    width: fit-content; /* Hugs the text */
+    width: fit-content;
     max-width: 90%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* 5. 3x3 Flag Grid */
+/* 6. Flag Grid */
 .flag-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px 10px; /* Tight grid spacing */
+    gap: 15px 10px;
     max-width: 380px;
     margin: 0 auto;
     padding-bottom: 30px;
 }
 
-/* 6. Language Buttons */
 .language-btn {
     text-decoration: none;
     display: flex;
@@ -148,14 +142,13 @@ h1#home-title {
 }
 
 .language-btn img {
-    width: 65px; /* Slightly smaller for better fit */
+    width: 65px;
     height: 65px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #ffffff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin-bottom: 5px;
-    background-color: #fff;
 }
 
 .language-btn span {
@@ -168,6 +161,4 @@ h1#home-title {
     border-radius: 8px;
 }
 
-.language-btn:active {
-    transform: scale(0.9);
-}
+.language-btn:active { transform: scale(0.9); }
