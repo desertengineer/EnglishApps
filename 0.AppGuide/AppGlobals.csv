@@ -1,0 +1,13 @@
+﻿SN,Screen,Element,Type,Value
+1,Home,Title,Heading,English Words Fun
+2,Home,Banner,Image,https://desertengineer.github.io/EnglishApps/AppAssets/HomeBanner.png
+3,Home,Language Trigger,Text,Select your language
+4,Home,Lang1,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ar.png
+5,Home,Lang2,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Bn.png
+6,Home,Lang3,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Es.png
+7,Home,Lang4,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Fr.png
+8,Home,Lang5,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Hi.png
+9,Home,Lang6,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Pt.png
+10,Home,Lang7,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ru.png
+11,Home,Lang8,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ur.png
+12,Home,Lang9,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Zh.png
