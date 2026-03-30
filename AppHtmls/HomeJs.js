@@ -69,9 +69,16 @@ function processCsv(csv) {
 
 function renderFlagButton(imgUrl, code, container) {
     const anchor = document.createElement("a");
-    // Link to the Category Menu section
-    anchor.href = `next_section_url?lang=${code}`; 
+    
+    // Set the AppCreator24 specific link rule
+    anchor.href = "go:Activities"; 
     anchor.className = "language-btn";
+    
+    // Save the language choice when the user clicks
+    anchor.onclick = () => {
+        localStorage.setItem("userLanguage", code);
+    };
+
     anchor.innerHTML = `<img src="${imgUrl}"><span>${getNativeName(code)}</span>`;
     container.appendChild(anchor);
 }

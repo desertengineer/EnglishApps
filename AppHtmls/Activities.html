@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities Menu</title>
+    <link rel="stylesheet" href="https://desertengineer.github.io/EnglishApps/AppHtmls/ActivitiesCss.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div id="hamburger-menu" class="menu-icon">☰</div>
+        <h1 id="welcome-msg">Welcome</h1>
+        
+        <div id="dropdown-menu" class="dropdown-content">
+            <a href="go:Home">Home</a>
+            <a href="#" onclick="menuCommand('About')">About</a>
+            <a href="#" onclick="menuCommand('Privacy')">Privacy</a>
+        </div>
+    </div>
+
+    <div class="activity-grid">
+        <a href="go:Vocabulary" class="card" id="card-learn">
+            <div class="icon">📚</div>
+            <span id="txt-learn">Learning</span>
+        </a>
+        
+        <a href="go:Videos" class="card" id="card-watch">
+            <div class="icon">📺</div>
+            <span id="txt-watch">Watch Videos</span>
+        </a>
+
+        <a href="go:Exercises" class="card" id="card-test">
+            <div class="icon">✍️</div>
+            <span id="txt-test">Exercises</span>
+        </a>
+
+        <a href="go:Games" class="card" id="card-games">
+            <div class="icon">🎮</div>
+            <span id="txt-games">Practice Games</span>
+        </a>
+    </div>
+
+    <script src="https://desertengineer.github.io/EnglishApps/AppHtmls/ActivitiesJs.js"></script>
+</body>
+</html>
