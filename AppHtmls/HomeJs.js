@@ -114,3 +114,29 @@ function renderFlagButton(imgUrl, langCode, container) {
     `;
     container.appendChild(anchor);
 }
+// Add this inside your DOMContentLoaded or as a standalone script
+document.addEventListener("click", (event) => {
+    const menu = document.getElementById("dropdown-menu");
+    const btn = document.getElementById("hamburger-menu");
+
+    // Toggle menu on button click
+    if (btn.contains(event.target)) {
+        menu.classList.toggle("show");
+    } 
+    // Close menu if user clicks outside of it
+    else if (!menu.contains(event.target)) {
+        menu.classList.remove("show");
+    }
+});
+
+/**
+ * Handle Menu Commands
+ * You can link these to AppCreator24 sections or external URLs
+ */
+function menuCommand(cmd) {
+    console.log("Command selected:", cmd);
+    // Example: if(cmd === 'Privacy') { window.location.href = 'your_privacy_url'; }
+    
+    // Close menu after selection
+    document.getElementById("dropdown-menu").classList.remove("show");
+}

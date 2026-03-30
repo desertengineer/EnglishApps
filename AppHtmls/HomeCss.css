@@ -21,6 +21,60 @@ body {
 }
 
 /* 2. Glassmorphism Title - Animated */
+/* Container for the Title + Menu */
+.menu-outer {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Hamburger Icon Positioning */
+#hamburger-menu {
+    position: absolute;
+    left: 25px;
+    top: 22px; /* Centers vertically with the title */
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    color: #1a2a3a;
+}
+
+/* Dropdown Menu Styling (Glassmorphism) */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #1a2a3a;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+
+.dropdown-content a:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Show class for JS toggle */
+.show { display: block !important; }
 h1#home-title {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(10px);
