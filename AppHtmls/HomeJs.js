@@ -94,7 +94,7 @@ function startTriggerAnimation() {
 
 function renderFlagButton(imgUrl, langCode, container) {
     const anchor = document.createElement("a");
-    anchor.href = `next_section_url?lang=${langCode}`; 
+    anchor.href = `go:Activities?lang=${langCode}`; 
     anchor.className = "language-btn";
     anchor.innerHTML = `<img src="${imgUrl}" alt="${langCode}"><span>${langCode.toUpperCase()}</span>`;
     container.appendChild(anchor);
