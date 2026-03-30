@@ -60,3 +60,22 @@
             margin-bottom: 8px;
             border: 2px solid #ffffff;
         }
+/* Animation for the Language Trigger text */
+#lang-trigger {
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 24px; /* Prevents layout jumping when text changes */
+    transition: opacity 0.5s ease-in-out, color 0.5s ease-in-out;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
