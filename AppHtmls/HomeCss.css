@@ -74,6 +74,13 @@ h1#home-title {
 .show { display: block !important; }
 
 /* 3. Banner & Trigger */
+#home-banner {
+    width: 100%;
+    max-width: 500px;
+    display: none; /* Hidden until JS loads the source */
+    margin: 10px auto;
+    border-radius: 15px;
+}
 .header-image {
     width: 95%;
     max-width: 340px;
@@ -98,24 +105,23 @@ h1#home-title {
 .flag-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px 10px;
-    max-width: 380px;
-    margin: 0 auto;
+    gap: 15px;
+    padding: 20px;
 }
-
 .language-btn {
-    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color: #333;
 }
 
 .language-btn img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
 }
 
 .language-btn span {
