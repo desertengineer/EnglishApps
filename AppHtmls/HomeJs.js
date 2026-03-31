@@ -85,12 +85,24 @@ function rotateTexts() {
 }
 
 function renderFlag(code, flagUrl, container) {
-    const langCol = code.charAt(0).toUpperCase() + code.slice(1) + "Text";
+    // Map the code to the CSV column name (e.g., "ar" -> "ArText")
+    const langCol = code.charAt(0).toUpperCase() + code.slice(1) + "Text"; 
+    
     const anchor = document.createElement("a");
+    // CRITICAL: This must match your AppCreator24 Section Name exactly
     anchor.href = "go:Categories"; 
     anchor.className = "language-btn";
-    anchor.onclick = () => localStorage.setItem("userLanguage", langCol);
-    anchor.innerHTML = `<img src="${flagUrl}" alt="${code}"><span>${getNativeName(code)}</span>`;
+    
+    anchor.onclick = (e) => {
+        // Prevent immediate jump to ensure storage is set
+        localStorage.setItem("userLanguage", langCol);
+        console.log("Language set to:", langCol);
+    };
+
+    anchor.innerHTML = `
+        <img src="${flagUrl}" alt="${code}">
+        <span>${getNativeName(code)}</span>
+    `;
     container.appendChild(anchor);
 }
 
