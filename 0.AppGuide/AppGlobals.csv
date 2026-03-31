@@ -1,13 +1,79 @@
-﻿SN,Screen,Element,Type,Value
-1,Home,Title,Heading,English Words Fun
-2,Home,Banner,Image,https://desertengineer.github.io/EnglishApps/AppAssets/HomeBanner.png
-3,Home,Language Trigger,Text,Select your language
-4,Home,Lang1,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ar.png
-5,Home,Lang2,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Bn.png
-6,Home,Lang3,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Es.png
-7,Home,Lang4,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Fr.png
-8,Home,Lang5,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Hi.png
-9,Home,Lang6,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Pt.png
-10,Home,Lang7,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ru.png
-11,Home,Lang8,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Ur.png
-12,Home,Lang9,Image,https://desertengineer.github.io/AppsCommon/LangFlags/Zh.png
+﻿SN,Screen,Role,Tag,Id,href,src,EnText,ZhText,HiText,EsText,ArText,FrText,BnText,PtText,RuText,UrText
+1,Home,Background,,,,https://desertengineer.github.io/EnglishApps/AppAssets/HomeBackground.png,,,,,,,,,,
+2,Home,Title,h1,home-title,,,English Words Fun, 英语单词趣味, अंग्रेजी शब्दों का मज़ा,Diversión con palabras, متعة الكلمات الإنجليزية, Mots Anglais Amusants, ইংরেজি শব্দের মজা,Diversão com Palavras, Веселые английские слова, انگریزی الفاظ का مزہ
+3,Home,Hamburger menu,div,dropdown-menu,,,,,,,,,,,,
+4,Home,Hamburger menu,a,,,,About Us,关于我们,हमारे बारे में,Sobre nosotros,من نحن,À propos de nous,আমাদের সম্পর্কে,Sobre Nós,О нас,ہمارے بارے میں
+5,Home,Hamburger menu,a,,,,Share App,分享应用,शेयर ऐप,Compartir app,تطبيق المشاركة,Partager l’application,শেয়ার অ্যাপ,Aplicativo de Compartilhamento,Приложение для обмена,شیئر ایپ
+6,Home,Hamburger menu,a,,,,Privacy Policy,隐私政策,गोपनीयता नीति,Política de privacidad,سياسة الخصوصية,Politique de confidentialité,গোপনীয়তা নীতি,Política de Privacidade,Политика конфиденциальности,پرائیویسی پالیسی
+7,Home,Hamburger menu,a,,,,Rate Us,给我们评分,हमें रेट करें,Valora,قيمنا,Notez-nous,আমাদের রেট দিন,Avalie-nos,Оцените нас,ہمیں ریٹ کریں
+8,Home,Hamburger menu,a,,,,Contact Us,联系我们,संपर्क करें,Contáctanos,تواصل معنا,Contactez-nous,আমাদের সাথে যোগাযোগ করুন,Entre em contato conosco,Связаться с нами,ہم سے رابطہ کریں
+9,Home,Banner,img,home-banner,,https://desertengineer.github.io/EnglishApps/AppAssets/HomeBanner.png,,,,,,,,,,
+10,Home,Language Trigger,div,lang-trigger,,,Select your language,选择一种语言开始,शुरू करने के लिए एक भाषा चुनें,Elija un idioma para comenzar,اختر لغة للبدء,Choisissez une langue pour commencer,শুরু করতে একটি ভাষা নির্বাচন করুন,Escolha um idioma para começar,Выберите язык чтобы начать,شروع کرنے کے لیے ایک زبان منتخب کریں
+11,Home,Languages Grid,div,flag-container,,,,,,,,,,,,
+12,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+13,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+14,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+15,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+16,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+17,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+18,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+19,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+20,Home,Language Link,a,,go:WordCategories,,,,,,,,,,,
+21,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Ar.png,,,,,,,,,,
+22,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Bn.png,,,,,,,,,,
+23,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Es.png,,,,,,,,,,
+24,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Fr.png,,,,,,,,,,
+25,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Hi.png,,,,,,,,,,
+26,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Pt.png,,,,,,,,,,
+27,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Ru.png,,,,,,,,,,
+28,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Ur.png,,,,,,,,,,
+29,Home,Language Flag,img,,,https://desertengineer.github.io/AppsCommon/LangFlags/Zh.png,,,,,,,,,,
+30,WordCategories,Background,,,go:WordCategories,https://desertengineer.github.io/EnglishApps/AppAssets/CategoriesBackground.jpg,,,,,,,,,,
+31,WordCategories,,h1,categories-title,,,Word Categories,词类,शब्द श्रेणियाँ,Categorías de palabras,فئات الكلمات,Catégories de mots,শব্দের বিষয়শ্রেণী,Categorias de Palavras,Категории слов,الفاظ کی اقسام
+32,WordCategories,Mix categories option,input,mix-checkbox,,,Mix Categories,混合类别,मिक्स श्रेणियाँ,Categorías de mezcla,خلط الفئات,Catégories de mélange,মিশ্রণ বিভাগ,Categorias de Mistura,Категории микса,مکس کیٹیگریز
+33,WordCategories,Category Link,a,,go:Activities,,Animals,动物,जानवर,Los Animales,الحيوانات,Les Animaux,প্রাণীগুলো,Os Animais,Животные,جانور
+34,WordCategories,Category Link,a,,go:Activities,,Body,身体,शरीर,El Cuerpo,الجسم,Le Corps,শরীরটি,O Corpo,Тело,جسم
+35,WordCategories,Category Link,a,,go:Activities,,City,城市,शहर,La Ciudad,المدينة,La Ville,শহরটি,A Cidade,Город,شہر
+36,WordCategories,Category Link,a,,go:Activities,,Clothes,衣服,कपड़े,La Ropa,الملابس,Les Vêtements,পোশাকগুলো,As Roupas,Одежда,کپڑے
+37,WordCategories,Category Link,a,,go:Activities,,Colours,颜色,रंग,Los Colores,الألوان,Les Couleurs,রঙগুলো,As Cores,Цвета,رنگ
+38,WordCategories,Category Link,a,,go:Activities,,Days & Months,日期和月份,दिन और महीने,Los Días y Meses,الأيام والشهور,Les Jours et les Mois,দিন ও মাসগুলো,Os Dias e os Meses,Дни и месяцы,دن اور مہینے
+39,WordCategories,Category Link,a,,go:Activities,,Drinks,饮料,पेय,Las Bebidas,المشروبات,Les Boissons,পানীয়গুলো,As Bebidas,Напитки,مشروبات
+40,WordCategories,Category Link,a,,go:Activities,,Family,家庭,परिवार,La Familia,العائلة,La Famille,পরিবারটি,A Família,Семья,خاندان
+41,WordCategories,Category Link,a,,go:Activities,,Food,食物,भोजन,La Comida,الطعام,La Nourriture,খাদ্যটি,A Comida,Еда,کھانا
+42,WordCategories,Category Link,a,,go:Activities,,Fruits,水果,फल,Las Frutas,الفواكه,Les Fruits,ফলগুলো,As Frutas,Фрукты,پھل
+43,WordCategories,Category Link,a,,go:Activities,,Furniture,家具,फर्नीचर,Los Muebles,الأثاث,Les Meubles,আসবাবপত্রগুলো,Os Móveis,Мебель,فرنیچر
+44,WordCategories,Category Link,a,,go:Activities,,House,房屋,घर,La Casa,المنزل,La Maison,বাড়িটি,A Casa,Дом,گھر
+45,WordCategories,Category Link,a,,go:Activities,,Numbers,数字,संख्याएँ,Los Números,الأرقام,Les Nombres,সংখ্যাগুলো,Os Números,Числа,نمبر
+46,WordCategories,Category Link,a,,go:Activities,,People,人物,लोग,La Gente,الناس,Les Gens,মানুষগুলো,As Pessoas,Люди,لوگ
+47,WordCategories,Category Link,a,,go:Activities,,Professions,职业,पेशे,Las Profesiones,المهن,Les Professions,পেশাগুলো,As Profissões,Профессии,پیشے
+48,WordCategories,Category Link,a,,go:Activities,,School,学校,स्कूल,La Escuela,المدرسة,L'École,স্কুলটি,A Escola,Школа,اسکول
+49,WordCategories,Category Link,a,,go:Activities,,Sports,运动,खेल,Los Deportes,الرياضة,Les Sports,খেলাধুলাগুলো,Os Esportes,Спорт,کھیل
+50,WordCategories,Category Link,a,,go:Activities,,Tools,工具,उपकरण,Las Herramientas,الأدوات,Les Outils,সরঞ্জামগুলো,As Ferramentas,Инструменты,اوزار
+51,WordCategories,Category Link,a,,go:Activities,,Transportation,交通,परिवहन,El Transporte,المواصلات,Le Transport,পরিবহনটি,O Transporte,Транспорт,نقل و حمل
+52,WordCategories,Category Link,a,,go:Activities,,Vegetables,蔬菜,सब्जियाँ,Las Verduras,الخضروات,Les Légumes,সবজিগুলো,As Verduras,Овощи,سبزیاں
+53,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Animals.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Animals.png,,,,,,,,
+54,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Body.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Body.png,,,,,,,,
+55,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,City.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/City.png,,,,,,,,
+56,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Clothes.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Clothes.png,,,,,,,,
+57,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Colours.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Colours.png,,,,,,,,
+58,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Days & Months.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Days & Months.png,,,,,,,,
+59,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Drinks.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Drinks.png,,,,,,,,
+60,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Family.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Family.png,,,,,,,,
+61,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Food.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Food.png,,,,,,,,
+62,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Fruits.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Fruits.png,,,,,,,,
+63,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Furniture.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Furniture.png,,,,,,,,
+64,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,House.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/House.png,,,,,,,,
+65,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Numbers.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Numbers.png,,,,,,,,
+66,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,People.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/People.png,,,,,,,,
+67,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Professions.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Professions.png,,,,,,,,
+68,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,School.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/School.png,,,,,,,,
+69,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Sports.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Sports.png,,,,,,,,
+70,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Tools.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Tools.png,,,,,,,,
+71,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Transportation.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Transportation.png,,,,,,,,
+72,WordCategories,Category Image,img,,,https://desertengineer.github.io/EnglishApps/CategoryIcons/,Vegetables.png,https://desertengineer.github.io/EnglishApps/CategoryIcons/Vegetables.png,,,,,,,,
+73,Activities,Background,,,,https://desertengineer.github.io/EnglishApps/AppAssets/ActivitiesBackground.png,,,,,,,,,,
+74,Activities,Title,h1,welcome-msg,,,Learn and Enjoy,学习并享受,सीखें और आनंद लें,Aprende y disfruta,تعلم واستمتع,Apprenez et profitez-en,শিখুন এবং উপভোগ করুন,Aprenda e aproveite,Учитесь и наслаждайтесь,سیکھیں اور لطف اٹھائیں
+75,Activities,ActivityLink,,,,,Learn,学习,सीखना,Aprende,تعلم,Apprendre,শিখুন,Aprenda,Учитесь,سیکھیں
+76,Activities,ActivityLink,,,,, Practice,实践,अभ्यास,Práctica,الممارسة,Pratique,অনুশীলন,Prática,Практика,عمل
+77,Activities,ActivityLink,,,,, Videos,视频,वीडियो,Vídeos,الفيديوهات,Vidéos,ভিডিও,Vídeos,Видео,ویڈیوز
+78,Activities,ActivityLink,,,,, Games,游戏,खेल,Juegos,الألعاب,Jeux,গেম,Jogos,Игры,کھیل
