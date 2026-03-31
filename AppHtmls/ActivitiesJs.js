@@ -1,45 +1,43 @@
 /**
- * ActivitiesJs.js - Localization Logic
+ * ActivitiesJs.js - Integrated Logic for Activities Selection
  */
-
-const translations = {
-    "ar": { welcome: "أهلاً بك!", learn: "تعلم", watch: "فيديوهات", test: "تمارين", games: "ألعاب" },
-    "bn": { welcome: "স্বাগতম!", learn: "শিখুন", watch: "ভিডিও", test: "অনুশীলন", games: "খেলা" },
-    "es": { welcome: "¡Bienvenido!", learn: "Aprender", watch: "Videos", test: "Ejercicios", games: "Juegos" },
-    "fr": { welcome: "Bienvenue!", learn: "Apprendre", watch: "Vidéos", test: "Exercices", games: "Jeux" },
-    "hi": { welcome: "स्वागत है!", learn: "सीखें", watch: "वीडियो", test: "अभ्यास", games: "खेल" },
-    "pt": { welcome: "Bem-vindo!", learn: "Aprender", watch: "Vídeos", test: "Exercícios", games: "Jogos" },
-    "ru": { welcome: "Добро пожаловать!", learn: "Учить", watch: "Видео", test: "Упражнения", games: "Игры" },
-    "ur": { welcome: "خوش آمدید!", learn: "سیکھیں", watch: "ویڈیوز", test: "مشقیں", games: "کھیل" },
-    "zh": { welcome: "欢迎！", learn: "学习", watch: "视频", test: "练习", games: "游戏" }
-};
+const globalsUrl = "https://desertengineer.github.io/EnglishApps/0.AppGuide/AppGlobals.csv";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Get language from LocalStorage (Saved in HomeJs.js)
-    const lang = localStorage.getItem("userLanguage") || "ar"; // Default to Arabic if empty
-    
-    // 2. Apply Translations
-    const data = translations[lang];
-    if (data) {
-        document.getElementById("welcome-msg").innerText = data.welcome;
-        document.getElementById("txt-learn").innerText = data.learn;
-        document.getElementById("txt-watch").innerText = data.watch;
-        document.getElementById("txt-test").innerText = data.test;
-        document.getElementById("txt-games").innerText = data.games;
-    }
+    const langCol = localStorage.getItem("userLanguage") || "EnText";
+    const headers = ["SN", "Screen", "Role", "Tag", "Id", "href", "src", "EnText", "ZhText", "HiText", "EsText", "ArText", "FrText", "BnText", "PtText", "RuText", "UrText"];
+    const colIdx = headers.indexOf(langCol);
 
-    initMenu();
-});
+    fetch(globalsUrl).then(res => res.text()).then(csv => {
+        const lines = csv.split(/\r?\n/).map(l => l.split(",").map(cell => cell.trim()));
+        const grid = document.getElementById("activities-grid");
 
-function initMenu() {
-    const btn = document.getElementById("hamburger-menu");
-    const menu = document.getElementById("dropdown-menu");
-    
-    document.addEventListener("click", (e) => {
-        if (btn && btn.contains(e.target)) {
-            menu.classList.toggle("show");
-        } else if (menu && !menu.contains(e.target)) {
-            menu.classList.remove("show");
-        }
+        lines.forEach(row => {
+            if (row[1] === "Activities") {
+                // Set Background from CSV
+                if (row[2] === "Background") document.body.style.backgroundImage = `url('${row[6]}')`;
+                // Set Localized Title (What's Next?)
+                if (row[4] === "welcome-msg") document.getElementById("welcome-msg").innerText = row[colIdx];
+                
+                // Render Activity Links
+                if (row[2] === "ActivityLink") {
+                    const activityEn = row[7]; 
+                    const activityTrans = row[colIdx];
+                    
+                    const card = document.createElement("a");
+                    card.href = `go:${activityEn}`;
+                    card.className = "activity-card";
+                    
+                    // Assign Emojis/Icons based on the English Name
+                    let emoji = "📚"; // Default Learn
+                    if(activityEn === "Practice") emoji = "✍️";
+                    if(activityEn === "Videos") emoji = "📺";
+                    if(activityEn === "Games") emoji = "🎮";
+
+                    card.innerHTML = `<div class="icon">${emoji}</div><span>${activityTrans}</span>`;
+                    grid.appendChild(card);
+                }
+            }
+        });
     });
-}
+});
