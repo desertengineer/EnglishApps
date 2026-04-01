@@ -1,87 +1,64 @@
 /**
- * HomeCss.css - Horizontal Alignment Version
+ * HomeCss.css - Animated Version
  */
-
 body {
     margin: 0;
-    padding: 10px; 
+    padding: 10px;
     text-align: center;
     font-family: 'Segoe UI', Roboto, sans-serif;
-    background-image: url('https://desertengineer.github.io/EnglishApps/AppAssets/HomeBackground.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* 1. Horizontal Top Bar */
+/* 1. Color Cycle Animation */
+@keyframes colorCycle {
+    0% { color: #ff5722; }    /* Orange-Red */
+    25% { color: #4caf50; }   /* Green */
+    50% { color: #2196f3; }   /* Blue */
+    75% { color: #9c27b0; }   /* Purple */
+    100% { color: #ff5722; }
+}
+
+#home-title, #lang-trigger {
+    animation: colorCycle 8s infinite;
+    transition: opacity 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+/* 2. Top Bar & Menu */
 .top-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Pushes Menu Left, Title Right */
-    background: rgba(255, 255, 255, 0.75);
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 5px 15px;
     margin: 5px auto 15px auto;
     width: 90%;
     max-width: 420px;
-    position: relative; /* For dropdown positioning */
+    position: relative;
 }
 
-#hamburger-menu {
-    font-size: 26px;
-    cursor: pointer;
-    color: #1a2a3a;
-    padding: 5px;
-}
+.menu-icon { font-size: 26px; cursor: pointer; }
+#home-title { font-size: 18px; margin: 0; }
 
-h1#home-title {
-    font-size: 17px; /* Scaled to fit next to menu */
-    color: #1a2a3a;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin: 0;
-    flex-grow: 1;
-    text-align: right; /* Aligns text to the right side */
-    transition: opacity 0.6s ease-in-out;
-}
-
-/* 2. Dropdown - Now aligns under the hamburger */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 50px;
-    left: 0;
-    background: rgba(255, 255, 255, 0.98);
-    min-width: 180px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-    z-index: 3000;
-    border-radius: 10px;
+    top: 50px; left: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 8px;
     text-align: left;
 }
-
-.dropdown-content a {
-    color: #1a2a3a;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
 .show { display: block !important; }
 
-/* 3. Banner & Trigger */
+/* 3. Banner & Grid */
 #home-banner {
-    width: 100%;
-    max-width: 500px;
-    display: none; /* Hidden until JS loads the source */
-    margin: 10px auto;
-    border-radius: 15px;
-}
-.header-image {
     width: 95%;
     max-width: 340px;
     height: auto;
@@ -90,24 +67,13 @@ h1#home-title {
     border: 3px solid #ffffff;
 }
 
-#lang-trigger {
-    font-size: 15px;
-    font-weight: 600;
-    padding: 6px 12px;
-    margin: 0 auto 15px auto;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    width: fit-content;
-    transition: all 0.6s ease-in-out;
-}
-
-/* 4. Flag Grid */
 .flag-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     padding: 20px;
 }
+
 .language-btn {
     display: flex;
     flex-direction: column;
@@ -117,17 +83,7 @@ h1#home-title {
 }
 
 .language-btn img {
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 5px;
-}
-
-.language-btn span {
-    font-size: 11px;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-    margin-top: 4px;
 }
