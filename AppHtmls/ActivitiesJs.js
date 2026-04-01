@@ -2,11 +2,9 @@ const globalsUrl = "https://desertengineer.github.io/EnglishApps/0.AppGuide/AppG
 
 document.addEventListener("DOMContentLoaded", () => {
     const langCol = localStorage.getItem("userLanguage") || "EnText";
-    
     fetch(globalsUrl).then(res => res.text()).then(csv => {
         const lines = csv.split(/\r?\n/).filter(l => l.trim() !== "").map(l => l.split(",").map(c => c.trim()));
-        const headers = lines[0];
-        const colIdx = headers.indexOf(langCol);
+        const colIdx = lines[0].indexOf(langCol);
         const grid = document.getElementById("activities-grid");
 
         lines.forEach(row => {
@@ -17,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (row[2] === "ActivityLink") {
                     const activityEn = row[7]; 
                     const activityTrans = row[colIdx];
-                    
                     const card = document.createElement("a");
                     card.href = `go:${activityEn}`;
                     card.className = "activity-card";
