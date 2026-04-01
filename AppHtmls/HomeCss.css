@@ -8,7 +8,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Background Color Cycle Animation */
+/* Background Animation */
 @keyframes bgCycle {
     0% { background-color: #ff5722; }
     25% { background-color: #4caf50; }
@@ -17,25 +17,41 @@ body {
     100% { background-color: #ff5722; }
 }
 
-#home-title, #lang-trigger {
+#home-title {
+    flex: 1; /* Takes up all available space */
+    text-align: center;
+    font-size: 18px;
+    margin: 0 10px;
     animation: bgCycle 8s infinite;
-    transition: opacity 0.5s ease-in-out;
+    padding: 8px 15px;
+    border-radius: 20px;
     color: white !important;
-    padding: 12px 25px;
-    border-radius: 30px;
+}
+
+#lang-trigger {
+    animation: bgCycle 8s infinite;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 15px auto;
     display: inline-block;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    margin: 10px auto;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 15px;
-    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 10px auto;
+    width: 92%;
+}
+
+#hamburger-menu {
+    width: 30px; /* Fixed width for menu area */
+    font-size: 26px;
+    cursor: pointer;
 }
 
 #home-banner {
@@ -71,7 +87,5 @@ body {
 .language-btn span {
     color: white;
     font-weight: bold;
-    margin-top: 8px;
-    font-size: 14px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 2px 2px 4px #000;
 }

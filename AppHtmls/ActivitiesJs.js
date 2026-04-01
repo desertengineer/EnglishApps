@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const langCol = localStorage.getItem("userLanguage") || "EnText";
     
     fetch(globalsUrl).then(res => res.text()).then(csv => {
+        // We MUST trim the cells because your CSV has " Practice" with a space
         const lines = csv.split(/\r?\n/).filter(l => l.trim() !== "").map(l => l.split(",").map(c => c.trim()));
         const headers = lines[0];
         const colIdx = headers.indexOf(langCol);
@@ -15,20 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (row[4] === "welcome-msg") document.getElementById("welcome-msg").innerText = row[colIdx];
                 
                 if (row[2] === "ActivityLink") {
-                    const activityEn = row[7]; 
-                    const activityTrans = row[colIdx];
+                    const activityEn = row[7]; // English reference
+                    const activityTrans = row[colIdx]; // Target language (e.g. Arabic/Spanish)
                     
                     const card = document.createElement("a");
                     card.href = `go:${activityEn}`;
                     card.className = "activity-card";
                     
+                    // Emoji Logic
                     let emoji = "📚";
                     if(activityEn === "Practice") emoji = "✍️";
                     if(activityEn === "Videos") emoji = "📺";
                     if(activityEn === "Games") emoji = "🎮";
 
                     card.innerHTML = `
-                        <div class="activity-icon-box">${emoji}</div>
+                        <div class="icon-box">${emoji}</div>
                         <span style="color:white; font-weight:bold; text-shadow:1px 1px 2px #000;">
                             ${activityTrans}
                         </span>`;
