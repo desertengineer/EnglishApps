@@ -4,17 +4,16 @@ body {
     font-family: 'Segoe UI', sans-serif;
     text-align: center;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 .top-bar {
     display: grid;
-    grid-template-columns: 40px 1fr 40px;
+    grid-template-columns: 50px 1fr 50px;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
 }
 
-.home-icon { grid-column: 1; text-decoration: none; font-size: 24px; }
+.home-icon { grid-column: 1; text-decoration: none; font-size: 24px; text-align: left; }
 
 #categories-title {
     grid-column: 2;
@@ -27,8 +26,8 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(4, 1fr); /* 4x5 grid layout */
+    gap: 10px;
     padding: 10px;
 }
 
@@ -45,16 +44,16 @@ body {
     background: white;
     border-radius: 12px;
     padding: 5px;
-    border: none; /* Border removed */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border: none !important; /* Explicitly removed border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .category-card span {
-    font-size: 11px;
-    font-weight: bold;
     color: white;
-    margin-top: 6px;
-    text-shadow: 1px 1px 3px #000;
+    font-size: 11px;
+    margin-top: 5px;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: bold;
     width: 70px;
     white-space: nowrap;
     overflow: hidden;

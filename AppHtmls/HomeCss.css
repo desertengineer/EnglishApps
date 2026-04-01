@@ -18,31 +18,31 @@ body {
 
 .top-bar {
     display: grid;
-    grid-template-columns: 40px 1fr 40px;
+    grid-template-columns: 50px 1fr 50px; /* Forces exact centering */
     align-items: center;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px;
     border-radius: 15px;
-    margin: 10px auto;
+    margin: 5px auto 15px auto;
     width: 92%;
 }
 
 #hamburger-menu {
     grid-column: 1;
-    font-size: 26px;
+    font-size: 28px;
     cursor: pointer;
     text-align: left;
 }
 
 #home-title {
     grid-column: 2;
-    text-align: center;
-    font-size: 18px;
     margin: 0;
+    font-size: 18px;
     animation: bgCycle 8s infinite;
-    padding: 8px 15px;
+    padding: 8px 12px;
     border-radius: 20px;
     color: white !important;
+    font-weight: bold;
 }
 
 #lang-trigger {
@@ -50,15 +50,16 @@ body {
     color: white !important;
     padding: 10px 20px;
     border-radius: 25px;
-    margin: 15px auto;
+    margin: 20px auto;
     display: inline-block;
+    font-weight: bold;
 }
 
 .flag-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
+    gap: 15px;
+    padding: 10px;
 }
 
 .language-btn {
@@ -73,12 +74,12 @@ body {
     height: 65px;
     border-radius: 50%;
     border: 2px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .language-btn span {
     color: white;
     font-weight: bold;
     margin-top: 8px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 2px 2px 4px #000;
 }
