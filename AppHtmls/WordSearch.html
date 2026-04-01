@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Word Search Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+  text-align:center;
+}
+
+/* MENU */
+.grid-menu{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  padding:15px;
+}
+.btn{
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#334155,#1e293b);
+  box-shadow:inset 3px 3px 6px #0f172a, inset -3px -3px 6px #475569;
+  cursor:pointer;
+}
+.locked{opacity:.3; pointer-events:none;}
+
+/* GAME */
+#game{display:none;}
+
+/* WORD LIST → 2 ROWS */
+.word-list{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  margin:10px;
+}
+.word-row{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.word{
+  font-size:14px;
+}
+.word.found{
+  text-decoration:line-through;
+  color:#22c55e;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  justify-content:center;
+  margin:10px;
+}
+.cell{
+  width:40px;
+  height:40px;
+  margin:3px;
+  border-radius:14px;
+
+  background:linear-gradient(145deg,#1e293b,#0f172a);
+  box-shadow:
+    3px 3px 8px rgba(0,0,0,0.6),
+    inset -2px -2px 4px rgba(255,255,255,0.05),
+    inset 2px 2px 4px rgba(0,0,0,0.5);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:bold;
+  font-size:18px;
+  color:#e2e8f0;
+
+  transition:0.15s;
+}
+.cell:hover{
+  transform:scale(1.1);
+}
+.cell.selected{
+  background:linear-gradient(145deg,#22c55e,#16a34a);
+  color:white;
+  transform:scale(1.15);
+  box-shadow:0 0 10px #22c55e;
+}
+.cell.found{
+  background:linear-gradient(145deg,#f59e0b,#d97706);
+  color:white;
+  box-shadow:0 0 12px #f59e0b;
+}
+
+/* TOP */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+}
+.back{
+  background:#ef4444;
+  border:none;
+  border-radius:10px;
+  padding:8px;
+  color:white;
+}
+
+/* WIN */
+#win{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Word Search</h2>
+
+<div id="menu" class="grid-menu"></div>
+
+<div id="game">
+  <div class="topbar">
+    <button class="back" onclick="location.reload()">Back</button>
+    <div id="timer">0s</div>
+    <div id="score">0</div>
+  </div>
+
+  <div id="words" class="word-list"></div>
+  <div id="grid" class="grid"></div>
+</div>
+
+<div id="win">
+  <h2>Level Complete!</h2>
+  <div id="stars"></div>
+  <button onclick="location.reload()">Next</button>
+</div>
+
+<script>
+// DATA
+const games = [
+{ref:1,level:"START",words:["CAT","DOG","FISH","CAR","BUS","HAT","RED","MILK","EGG"],size:8},
+{ref:2,level:"START",words:["LION","FOX","BEAR","TRAIN","BOAT","SHIRT","BLUE","TEA","RICE"],size:8},
+{ref:3,level:"START",words:["GOAT","WOLF","DEER","TAXI","VAN","SHOES","GREEN","JUICE","BREAD"],size:8},
+];
+
+// STATE
+let unlocked=parseInt(localStorage.getItem("unlock")||1);
+let currentGame=null;
+let timer=0,interval;
+let score=0;
+let found=[];
+let cells=[];
+
+// MENU
+const menu=document.getElementById("menu");
+games.forEach(g=>{
+  let b=document.createElement("div");
+  b.className="btn";
+  if(g.ref>unlocked) b.classList.add("locked");
+  b.innerText=g.level+" "+g.ref;
+  b.onclick=()=>startGame(g);
+  menu.appendChild(b);
+});
+
+// START
+function startGame(g){
+  currentGame=g;
+  found=[];
+  score=0;
+  timer=0;
+
+  document.getElementById("menu").style.display="none";
+  document.getElementById("game").style.display="block";
+
+  startTimer();
+  drawWords(g);
+  generateGrid(g);
+}
+
+// TIMER
+function startTimer(){
+  clearInterval(interval);
+  interval=setInterval(()=>{
+    timer++;
+    document.getElementById("timer").innerText=timer+"s";
+  },1000);
+}
+
+// WORD LIST → 2 ROWS
+function drawWords(g){
+  let div=document.getElementById("words");
+  div.innerHTML="";
+
+  let row1=document.createElement("div");
+  let row2=document.createElement("div");
+  row1.className="word-row";
+  row2.className="word-row";
+
+  g.words.forEach((w,i)=>{
+    let el=document.createElement("div");
+    el.className="word";
+    el.innerText=w;
+
+    if(i < Math.ceil(g.words.length/2)){
+      row1.appendChild(el);
+    }else{
+      row2.appendChild(el);
+    }
+  });
+
+  div.appendChild(row1);
+  div.appendChild(row2);
+}
+
+// GRID GENERATION
+function generateGrid(g){
+  let size=g.size;
+  let grid=Array(size).fill().map(()=>Array(size).fill(""));
+
+  let dirs=[[0,1],[1,0],[1,1],[-1,1]];
+
+  g.words.forEach(word=>{
+    let placed=false;
+    while(!placed){
+      let d=dirs[Math.floor(Math.random()*dirs.length)];
+      let r=Math.floor(Math.random()*size);
+      let c=Math.floor(Math.random()*size);
+
+      let fits=true;
+      for(let i=0;i<word.length;i++){
+        let nr=r+i*d[0];
+        let nc=c+i*d[1];
+        if(nr<0||nc<0||nr>=size||nc>=size||(grid[nr][nc]&&grid[nr][nc]!==word[i])){
+          fits=false; break;
+        }
+      }
+
+      if(fits){
+        for(let i=0;i<word.length;i++){
+          let nr=r+i*d[0];
+          let nc=c+i*d[1];
+          grid[nr][nc]=word[i];
+        }
+        placed=true;
+      }
+    }
+  });
+
+  let letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for(let r=0;r<size;r++){
+    for(let c=0;c<size;c++){
+      if(!grid[r][c]){
+        grid[r][c]=letters[Math.floor(Math.random()*26)];
+      }
+    }
+  }
+
+  let gridDiv=document.getElementById("grid");
+  gridDiv.innerHTML="";
+  gridDiv.style.gridTemplateColumns=`repeat(${size},40px)`;
+
+  cells=[];
+  grid.flat().forEach(letter=>{
+    let cell=document.createElement("div");
+    cell.className="cell";
+    cell.innerText=letter;
+    gridDiv.appendChild(cell);
+    cells.push(cell);
+  });
+
+  enableDrag();
+}
+
+// DRAG
+let selecting=false,path=[];
+function enableDrag(){
+  cells.forEach((cell,i)=>{
+    cell.onmousedown=()=>{
+      selecting=true;
+      path=[i];
+      cell.classList.add("selected");
+    };
+    cell.onmouseover=()=>{
+      if(selecting){
+        path.push(i);
+        cell.classList.add("selected");
+      }
+    };
+    cell.onmouseup=checkWord;
+  });
+  document.onmouseup=()=>selecting=false;
+}
+
+// CHECK
+function checkWord(){
+  let word=path.map(i=>cells[i].innerText).join("");
+  let rev=word.split("").reverse().join("");
+
+  currentGame.words.forEach((w,index)=>{
+    if(!found.includes(w) && (word===w || rev===w)){
+      found.push(w);
+      score+=10;
+      document.getElementById("score").innerText=score;
+
+      document.querySelectorAll(".word")[index].classList.add("found");
+      path.forEach(i=>cells[i].classList.add("found"));
+
+      new Audio("https://actions.google.com/sounds/v1/cartoon/pop.ogg").play();
+    }
+  });
+
+  cells.forEach(c=>c.classList.remove("selected"));
+  path=[];
+
+  if(found.length===currentGame.words.length){
+    winGame();
+  }
+}
+
+// WIN
+function winGame(){
+  clearInterval(interval);
+  let stars=timer<30?3:timer<60?2:1;
+  document.getElementById("stars").innerText="⭐".repeat(stars);
+  document.getElementById("win").style.display="flex";
+
+  if(currentGame.ref>=unlocked){
+    unlocked++;
+    localStorage.setItem("unlock",unlocked);
+  }
+}
+</script>
+
+</body>
+</html>
