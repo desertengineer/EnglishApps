@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const grid = document.getElementById("categories-grid");
         
         lines.forEach(row => {
-            if (row[1] === "Categories") {
+            if (row[1] === "Categories" || row[1] === "WordCategories") {
                 if (row[2] === "Background") document.body.style.backgroundImage = `url('${row[6]}')`;
                 if (row[4] === "categories-title") document.getElementById("categories-title").innerText = row[colIdx];
                 if (row[2] === "Mix categories option") document.getElementById("mix-label").innerText = row[colIdx];
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     const engName = row[7]; 
                     const transName = row[colIdx];
                     
-                    // Find icon URL from 'Category Image' rows
                     const imgRow = lines.find(r => r[2] === "Category Image" && r[7].toLowerCase() === (engName + ".png").toLowerCase());
                     const iconUrl = imgRow ? imgRow[6] + imgRow[7] : "";
 
